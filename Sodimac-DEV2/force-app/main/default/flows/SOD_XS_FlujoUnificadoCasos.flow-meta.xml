@@ -3,8 +3,8 @@
     <actionCalls>
         <name>CO_Atraso_en_la_Entrega</name>
         <label>CO - Atraso en la Entrega</label>
-        <locationX>1522</locationX>
-        <locationY>6125</locationY>
+        <locationX>1133</locationX>
+        <locationY>7763</locationY>
         <actionName>addSkillRequirements</actionName>
         <actionType>addSkillRequirements</actionType>
         <connector>
@@ -31,8 +31,8 @@
     <actionCalls>
         <name>CO_Backoffice_PaP</name>
         <label>CO - Backoffice PaP</label>
-        <locationX>1258</locationX>
-        <locationY>6125</locationY>
+        <locationX>869</locationX>
+        <locationY>7763</locationY>
         <actionName>addSkillRequirements</actionName>
         <actionType>addSkillRequirements</actionType>
         <connector>
@@ -59,8 +59,8 @@
     <actionCalls>
         <name>CO_Route_Skills_Atraso_en_la_Entrega</name>
         <label>CO - Route Skills - Atraso en la Entrega</label>
-        <locationX>1522</locationX>
-        <locationY>6233</locationY>
+        <locationX>1133</locationX>
+        <locationY>7883</locationY>
         <actionName>routeWork</actionName>
         <actionType>routeWork</actionType>
         <connector>
@@ -143,8 +143,8 @@
     <actionCalls>
         <name>CO_Route_Skills_Backoffice_PaP</name>
         <label>CO - Route Skills - Backoffice PaP</label>
-        <locationX>1258</locationX>
-        <locationY>6233</locationY>
+        <locationX>869</locationX>
+        <locationY>7883</locationY>
         <actionName>routeWork</actionName>
         <actionType>routeWork</actionType>
         <connector>
@@ -227,8 +227,8 @@
     <actionCalls>
         <name>CO_Route_Skills_Servicio_T_cnico</name>
         <label>CO - Route Skills - Servicio Técnico</label>
-        <locationX>1786</locationX>
-        <locationY>6233</locationY>
+        <locationX>1397</locationX>
+        <locationY>7883</locationY>
         <actionName>routeWork</actionName>
         <actionType>routeWork</actionType>
         <connector>
@@ -311,8 +311,8 @@
     <actionCalls>
         <name>CO_Servicio_Tecnico</name>
         <label>CO - Servicio Técnico</label>
-        <locationX>1786</locationX>
-        <locationY>6125</locationY>
+        <locationX>1397</locationX>
+        <locationY>7763</locationY>
         <actionName>addSkillRequirements</actionName>
         <actionType>addSkillRequirements</actionType>
         <connector>
@@ -339,8 +339,8 @@
     <actionCalls>
         <name>Invocar_Activar_Reglas_de_Asignacion_del_Caso_0</name>
         <label>Invocar Activar Reglas de Asignacion del Caso</label>
-        <locationX>1762</locationX>
-        <locationY>3407</locationY>
+        <locationX>1269</locationX>
+        <locationY>3647</locationY>
         <actionName>SOD_XS_InvokeActivateCaseAssignmentRules</actionName>
         <actionType>apex</actionType>
         <connector>
@@ -357,13 +357,13 @@
     <actionCalls>
         <name>Invocar_Agregar_Productos_del_Caso_0</name>
         <label>Invocar Agregar Productos del Caso</label>
-        <locationX>1762</locationX>
-        <locationY>3515</locationY>
+        <locationX>1269</locationX>
+        <locationY>3767</locationY>
         <actionName>SOD_XS_InvokeAddProductsToCase</actionName>
         <actionType>apex</actionType>
         <connector>
             <isGoTo>true</isGoTo>
-            <targetReference>Obtener_Cliente_Notificaciones</targetReference>
+            <targetReference>Se_puede_enviar_notificacion</targetReference>
         </connector>
         <flowTransactionModel>CurrentTransaction</flowTransactionModel>
         <inputParameters>
@@ -374,10 +374,28 @@
         </inputParameters>
     </actionCalls>
     <actionCalls>
+        <name>Notificar_Creacion_Caso_Web_To_Case</name>
+        <label>Notificar Creacion Caso Web To Case</label>
+        <locationX>1018</locationX>
+        <locationY>6035</locationY>
+        <actionName>Case.SOD_CO_Caso_Notificacion_ClienteCrearCasoWebToCase</actionName>
+        <actionType>emailAlert</actionType>
+        <connector>
+            <targetReference>Se_debe_enrutar_el_caso_por_habilidades</targetReference>
+        </connector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>SObjectRowId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputParameters>
+    </actionCalls>
+    <actionCalls>
         <name>Solicitar_Evidencia</name>
         <label>Solicitar Evidencia</label>
-        <locationX>1489</locationX>
-        <locationY>5441</locationY>
+        <locationX>50</locationX>
+        <locationY>6395</locationY>
         <actionName>Case.SOD_CO_Caso_Notificacion_SolicitudEvidencia</actionName>
         <actionType>emailAlert</actionType>
         <connector>
@@ -395,8 +413,8 @@
     <assignments>
         <name>Agregar_a_La_Coleccion</name>
         <label>Agregar a La Colección</label>
-        <locationX>1632</locationX>
-        <locationY>7049</locationY>
+        <locationX>1474</locationX>
+        <locationY>8891</locationY>
         <assignmentItems>
             <assignToReference>TareasParaActualizar</assignToReference>
             <operator>Add</operator>
@@ -411,8 +429,8 @@
     <assignments>
         <name>Agregar_a_La_Coleccion1</name>
         <label>Agregar a La Colección</label>
-        <locationX>1984</locationX>
-        <locationY>7049</locationY>
+        <locationX>1826</locationX>
+        <locationY>8891</locationY>
         <assignmentItems>
             <assignToReference>TareasParaActualizar</assignToReference>
             <operator>Add</operator>
@@ -427,8 +445,8 @@
     <assignments>
         <name>Asigna_Propietario</name>
         <label>Asigna Propietario</label>
-        <locationX>1632</locationX>
-        <locationY>6941</locationY>
+        <locationX>1474</locationX>
+        <locationY>8771</locationY>
         <assignmentItems>
             <assignToReference>Recorrer_Tareas_Caso_Abierto.SOD_XS_PropietarioDelCaso__c</assignToReference>
             <operator>Assign</operator>
@@ -443,8 +461,8 @@
     <assignments>
         <name>Asignar_Caso_Cerrado</name>
         <label>Asignar Caso Cerrado</label>
-        <locationX>1984</locationX>
-        <locationY>6941</locationY>
+        <locationX>1826</locationX>
+        <locationY>8771</locationY>
         <assignmentItems>
             <assignToReference>Recorrer_Tareas_Caso_Cerrado.SOD_XS_CasoCerrado__c</assignToReference>
             <operator>Assign</operator>
@@ -459,8 +477,8 @@
     <decisions>
         <name>Caso_Abierto</name>
         <label>Caso Abierto</label>
-        <locationX>1720</locationX>
-        <locationY>6725</locationY>
+        <locationX>1562</locationX>
+        <locationY>8531</locationY>
         <defaultConnector>
             <targetReference>Recorrer_Tareas_Caso_Cerrado</targetReference>
         </defaultConnector>
@@ -484,24 +502,59 @@
     <decisions>
         <name>Cliente_Tiene_Email</name>
         <label>Cliente Tiene Email</label>
-        <locationX>1621</locationX>
-        <locationY>5225</locationY>
+        <locationX>1579</locationX>
+        <locationY>5195</locationY>
         <defaultConnector>
             <targetReference>Se_debe_enrutar_el_caso_por_habilidades</targetReference>
         </defaultConnector>
         <defaultConnectorLabel>No</defaultConnectorLabel>
         <rules>
             <name>Si_0</name>
-            <conditionLogic>and</conditionLogic>
+            <conditionLogic>(1 AND 2 AND 3) OR (4 AND 5 AND 6)</conditionLogic>
             <conditions>
-                <leftValueReference>Obtener_Cliente_Notificaciones.PersonEmail</leftValueReference>
+                <leftValueReference>Obtener_Cliente.Id</leftValueReference>
                 <operator>IsNull</operator>
                 <rightValue>
                     <booleanValue>false</booleanValue>
                 </rightValue>
             </conditions>
+            <conditions>
+                <leftValueReference>Obtener_Cliente.PersonEmail</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Obtener_Cliente.RecordType.DeveloperName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>PersonAccount</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Obtener_Contacto.Id</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Obtener_Contacto.Email</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Obtener_Cliente.RecordType.DeveloperName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Business_Account</stringValue>
+                </rightValue>
+            </conditions>
             <connector>
-                <targetReference>Crear_Email_Message</targetReference>
+                <targetReference>Determinar_Pais</targetReference>
             </connector>
             <label>Si</label>
         </rules>
@@ -509,15 +562,22 @@
     <decisions>
         <name>CO_Determinar_Notificacion</name>
         <label>CO - Determinar Notificacion</label>
-        <locationX>1940</locationX>
-        <locationY>4793</locationY>
+        <locationX>1064</locationX>
+        <locationY>5435</locationY>
         <defaultConnector>
             <targetReference>Se_debe_enrutar_el_caso_por_habilidades</targetReference>
         </defaultConnector>
         <defaultConnectorLabel>Resultado predeterminado</defaultConnectorLabel>
         <rules>
             <name>Producto_Da_ado</name>
-            <conditionLogic>((1 AND (2 OR 8) AND (3 OR 6 OR 7 OR 9 OR 10 OR 11 OR 12)) OR (13 AND 8 AND 9 AND 14)) AND (15 AND 4 AND 5)</conditionLogic>
+            <conditionLogic>1 AND 5 AND 2 AND (3 OR 4)</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Origin</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>Web-to-Case</stringValue>
+                </rightValue>
+            </conditions>
             <conditions>
                 <leftValueReference>$Record.RecordType.Name</leftValueReference>
                 <operator>EqualTo</operator>
@@ -533,41 +593,6 @@
                 </rightValue>
             </conditions>
             <conditions>
-                <leftValueReference>$Record.SOD_XS_Motivo__c</leftValueReference>
-                <operator>EqualTo</operator>
-                <rightValue>
-                    <stringValue>Producto Dañado</stringValue>
-                </rightValue>
-            </conditions>
-            <conditions>
-                <leftValueReference>$Record.OwnerId</leftValueReference>
-                <operator>StartsWith</operator>
-                <rightValue>
-                    <stringValue>005</stringValue>
-                </rightValue>
-            </conditions>
-            <conditions>
-                <leftValueReference>$Record.OwnerId</leftValueReference>
-                <operator>NotEqualTo</operator>
-                <rightValue>
-                    <elementReference>$Record.CreatedById</elementReference>
-                </rightValue>
-            </conditions>
-            <conditions>
-                <leftValueReference>$Record.SOD_XS_Motivo__c</leftValueReference>
-                <operator>EqualTo</operator>
-                <rightValue>
-                    <stringValue>Producto Incompleto</stringValue>
-                </rightValue>
-            </conditions>
-            <conditions>
-                <leftValueReference>$Record.SOD_XS_Motivo__c</leftValueReference>
-                <operator>EqualTo</operator>
-                <rightValue>
-                    <stringValue>Producto no Corresponde</stringValue>
-                </rightValue>
-            </conditions>
-            <conditions>
                 <leftValueReference>$Record.SOD_XS_Area__c</leftValueReference>
                 <operator>EqualTo</operator>
                 <rightValue>
@@ -575,65 +600,59 @@
                 </rightValue>
             </conditions>
             <conditions>
-                <leftValueReference>$Record.SOD_XS_Motivo__c</leftValueReference>
-                <operator>EqualTo</operator>
+                <leftValueReference>$Record.Origin</leftValueReference>
+                <operator>NotEqualTo</operator>
                 <rightValue>
-                    <stringValue>Servicio Técnico</stringValue>
-                </rightValue>
-            </conditions>
-            <conditions>
-                <leftValueReference>$Record.SOD_XS_Motivo__c</leftValueReference>
-                <operator>EqualTo</operator>
-                <rightValue>
-                    <stringValue>Calidad de Producto</stringValue>
-                </rightValue>
-            </conditions>
-            <conditions>
-                <leftValueReference>$Record.SOD_XS_Motivo__c</leftValueReference>
-                <operator>EqualTo</operator>
-                <rightValue>
-                    <stringValue>Despacho Incompleto</stringValue>
-                </rightValue>
-            </conditions>
-            <conditions>
-                <leftValueReference>$Record.SOD_XS_Motivo__c</leftValueReference>
-                <operator>EqualTo</operator>
-                <rightValue>
-                    <stringValue>Entrega Errónea</stringValue>
-                </rightValue>
-            </conditions>
-            <conditions>
-                <leftValueReference>$Record.RecordType.Name</leftValueReference>
-                <operator>EqualTo</operator>
-                <rightValue>
-                    <stringValue>Solicitud</stringValue>
-                </rightValue>
-            </conditions>
-            <conditions>
-                <leftValueReference>$Record.SOD_XS_Submotivo__c</leftValueReference>
-                <operator>EqualTo</operator>
-                <rightValue>
-                    <stringValue>Servicio Técnico</stringValue>
-                </rightValue>
-            </conditions>
-            <conditions>
-                <leftValueReference>$Record__Prior.OwnerId</leftValueReference>
-                <operator>StartsWith</operator>
-                <rightValue>
-                    <stringValue>00G</stringValue>
+                    <stringValue>Web</stringValue>
                 </rightValue>
             </conditions>
             <connector>
-                <targetReference>Obtener_Template</targetReference>
+                <targetReference>Cumple_Motivos_Permitidos</targetReference>
             </connector>
             <label>Producto Dañado</label>
+        </rules>
+        <rules>
+            <name>Web_To_Case_1</name>
+            <conditionLogic>(1 OR 4) AND (2 AND 3)</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Origin</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Web-to-Case</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Status</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>New</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.SOD_XS_AuxPaisDelCaso__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Colombia</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Origin</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Web</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Obtener_Template_2</targetReference>
+            </connector>
+            <label>Web To Case</label>
         </rules>
     </decisions>
     <decisions>
         <name>CO_Determinar_que_Skills_se_Aplican</name>
         <label>CO - Determinar que Skills se Aplican</label>
-        <locationX>1654</locationX>
-        <locationY>6017</locationY>
+        <locationX>1265</locationX>
+        <locationY>7643</locationY>
         <defaultConnector>
             <targetReference>Hay_que_actualizar_Tareas_Hijas</targetReference>
         </defaultConnector>
@@ -867,22 +886,146 @@
         </rules>
     </decisions>
     <decisions>
+        <name>Cumple_Criterios_Adicionales</name>
+        <label>Cumple Criterios Adicionales</label>
+        <locationX>336</locationX>
+        <locationY>5795</locationY>
+        <defaultConnector>
+            <targetReference>Se_debe_enrutar_el_caso_por_habilidades</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>No</defaultConnectorLabel>
+        <rules>
+            <name>Si4</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.OwnerId</leftValueReference>
+                <operator>StartsWith</operator>
+                <rightValue>
+                    <stringValue>005</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.OwnerId</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <elementReference>$Record.CreatedById</elementReference>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.CreatedDate</leftValueReference>
+                <operator>GreaterThan</operator>
+                <rightValue>
+                    <dateTimeValue>2022-11-11T23:00:00.000Z</dateTimeValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Obtener_Template</targetReference>
+            </connector>
+            <label>Si</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Cumple_Motivos_Permitidos</name>
+        <label>Cumple Motivos Permitidos</label>
+        <locationX>671</locationX>
+        <locationY>5555</locationY>
+        <defaultConnector>
+            <targetReference>Se_debe_enrutar_el_caso_por_habilidades</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>No</defaultConnectorLabel>
+        <rules>
+            <name>Si2</name>
+            <conditionLogic>or</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.SOD_XS_Motivo__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Producto Dañado</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.SOD_XS_Motivo__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Producto Incompleto</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.SOD_XS_Motivo__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Producto no Corresponde</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.SOD_XS_Motivo__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Entrega Errónea</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.SOD_XS_Motivo__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Calidad de Producto</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Cumple_Submotivos_Permitidos</targetReference>
+            </connector>
+            <label>Si</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Cumple_Submotivos_Permitidos</name>
+        <label>Cumple Submotivos Permitidos</label>
+        <locationX>501</locationX>
+        <locationY>5675</locationY>
+        <defaultConnector>
+            <targetReference>Se_debe_enrutar_el_caso_por_habilidades</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>No</defaultConnectorLabel>
+        <rules>
+            <name>Si3</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.SOD_XS_Submotivo__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>Manual Faltante</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Cumple_Criterios_Adicionales</targetReference>
+            </connector>
+            <label>Si</label>
+        </rules>
+    </decisions>
+    <decisions>
         <name>Determinar_Origen_del_Caso</name>
         <label>Determinar Origen del Caso</label>
-        <locationX>2182</locationX>
-        <locationY>431</locationY>
+        <locationX>1782</locationX>
+        <locationY>455</locationY>
         <defaultConnector>
-            <targetReference>Obtener_Cliente_Notificaciones</targetReference>
+            <targetReference>Se_puede_enviar_notificacion</targetReference>
         </defaultConnector>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
             <name>Web_to_Case</name>
-            <conditionLogic>and</conditionLogic>
+            <conditionLogic>or</conditionLogic>
             <conditions>
                 <leftValueReference>$Record.Origin</leftValueReference>
                 <operator>EqualTo</operator>
                 <rightValue>
                     <stringValue>Web-to-Case</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Origin</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Web</stringValue>
                 </rightValue>
             </conditions>
             <connector>
@@ -894,8 +1037,11 @@
     <decisions>
         <name>Determinar_Pais</name>
         <label>Determinar Pais</label>
-        <locationX>2182</locationX>
-        <locationY>4685</locationY>
+        <locationX>1349</locationX>
+        <locationY>5315</locationY>
+        <defaultConnector>
+            <targetReference>Se_debe_enrutar_el_caso_por_habilidades</targetReference>
+        </defaultConnector>
         <defaultConnectorLabel>Resultado predeterminado</defaultConnectorLabel>
         <rules>
             <name>Col</name>
@@ -914,10 +1060,35 @@
         </rules>
     </decisions>
     <decisions>
+        <name>Determinar_Pais1</name>
+        <label>Determinar Pais</label>
+        <locationX>1551</locationX>
+        <locationY>7523</locationY>
+        <defaultConnector>
+            <targetReference>Hay_que_actualizar_Tareas_Hijas</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Resultado predeterminado</defaultConnectorLabel>
+        <rules>
+            <name>Colombia1</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.SOD_XS_PaisdelCaso__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Colombia</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>CO_Determinar_que_Skills_se_Aplican</targetReference>
+            </connector>
+            <label>Colombia</label>
+        </rules>
+    </decisions>
+    <decisions>
         <name>Determinar_Si_Caso_Aplica_0</name>
         <label>Determinar Si Caso Aplica</label>
-        <locationX>1738</locationX>
-        <locationY>2759</locationY>
+        <locationX>1245</locationX>
+        <locationY>2927</locationY>
         <defaultConnector>
             <targetReference>Iterar_Sobre_Tipificaciones_Especiales_0</targetReference>
         </defaultConnector>
@@ -941,8 +1112,8 @@
     <decisions>
         <name>Determinar_Tipo_de_Cliente</name>
         <label>Determinar Tipo de Cliente</label>
-        <locationX>1432</locationX>
-        <locationY>1835</locationY>
+        <locationX>939</locationX>
+        <locationY>1775</locationY>
         <defaultConnector>
             <targetReference>Obtener_Person_Account_RT</targetReference>
         </defaultConnector>
@@ -966,8 +1137,8 @@
     <decisions>
         <name>Email_Message_Se_Puede_Enviar</name>
         <label>Email Message Se Puede Enviar</label>
-        <locationX>1775</locationX>
-        <locationY>5117</locationY>
+        <locationX>182</locationX>
+        <locationY>6155</locationY>
         <defaultConnector>
             <targetReference>Se_debe_enrutar_el_caso_por_habilidades</targetReference>
         </defaultConnector>
@@ -983,7 +1154,32 @@
                 </rightValue>
             </conditions>
             <connector>
-                <targetReference>Cliente_Tiene_Email</targetReference>
+                <targetReference>Crear_Email_Message</targetReference>
+            </connector>
+            <label>Si</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Email_Message_Se_Puede_Enviar2</name>
+        <label>Email Message Se Puede Enviar</label>
+        <locationX>1150</locationX>
+        <locationY>5795</locationY>
+        <defaultConnector>
+            <targetReference>Se_debe_enrutar_el_caso_por_habilidades</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>No</defaultConnectorLabel>
+        <rules>
+            <name>Si5</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Obtener_Email_Mesage_2</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Crear_Email_Message_2</targetReference>
             </connector>
             <label>Si</label>
         </rules>
@@ -991,8 +1187,8 @@
     <decisions>
         <name>Esta_activo</name>
         <label>Esta activo ?</label>
-        <locationX>1397</locationX>
-        <locationY>755</locationY>
+        <locationX>1275</locationX>
+        <locationY>815</locationY>
         <defaultConnector>
             <targetReference>Eliminar_Registro_desencadenador_0</targetReference>
         </defaultConnector>
@@ -1014,35 +1210,10 @@
         </rules>
     </decisions>
     <decisions>
-        <name>Existe_mismo_Caso_abierto</name>
-        <label>Existe mismo Caso abierto ?</label>
-        <locationX>790</locationX>
-        <locationY>1079</locationY>
-        <defaultConnector>
-            <targetReference>Obtener_Pais</targetReference>
-        </defaultConnector>
-        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
-        <rules>
-            <name>Si_existe_mismo_caso</name>
-            <conditionLogic>and</conditionLogic>
-            <conditions>
-                <leftValueReference>Obtener_Casos_Abiertos</leftValueReference>
-                <operator>IsNull</operator>
-                <rightValue>
-                    <booleanValue>false</booleanValue>
-                </rightValue>
-            </conditions>
-            <connector>
-                <targetReference>Obtener_RecordTypeId_Reincidencia_Recontacto</targetReference>
-            </connector>
-            <label>Si existe mismo caso</label>
-        </rules>
-    </decisions>
-    <decisions>
         <name>Flujos_desactivados</name>
         <label>Flujos desactivados?</label>
-        <locationX>984</locationX>
-        <locationY>323</locationY>
+        <locationX>670</locationX>
+        <locationY>335</locationY>
         <defaultConnector>
             <targetReference>Determinar_Origen_del_Caso</targetReference>
         </defaultConnector>
@@ -1063,8 +1234,8 @@
     <decisions>
         <name>Hay_que_actualizar_Tareas_Hijas</name>
         <label>Hay que actualizar Tareas Hijas?</label>
-        <locationX>1940</locationX>
-        <locationY>6509</locationY>
+        <locationX>1782</locationX>
+        <locationY>8291</locationY>
         <defaultConnectorLabel>Resultado predeterminado</defaultConnectorLabel>
         <rules>
             <name>Si_2</name>
@@ -1092,8 +1263,8 @@
     <decisions>
         <name>Pais_Del_Caso_Web_to_Case</name>
         <label>Pais Del Caso Web-to-Case</label>
-        <locationX>1832</locationX>
-        <locationY>539</locationY>
+        <locationX>1525</locationX>
+        <locationY>575</locationY>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
             <name>Colombia</name>
@@ -1114,8 +1285,8 @@
     <decisions>
         <name>RecordType_del_Caso</name>
         <label>RecordType del Caso</label>
-        <locationX>1894</locationX>
-        <locationY>2975</locationY>
+        <locationX>1401</locationX>
+        <locationY>3167</locationY>
         <defaultConnector>
             <targetReference>Loop_Record_Types</targetReference>
         </defaultConnector>
@@ -1139,8 +1310,8 @@
     <decisions>
         <name>Se_debe_enrutar_el_caso_por_habilidades</name>
         <label>Se debe enrutar el caso por habilidades?</label>
-        <locationX>1940</locationX>
-        <locationY>5801</locationY>
+        <locationX>1782</locationX>
+        <locationY>7283</locationY>
         <defaultConnector>
             <targetReference>Hay_que_actualizar_Tareas_Hijas</targetReference>
         </defaultConnector>
@@ -1171,10 +1342,10 @@
     <decisions>
         <name>Se_encontro_Tienda</name>
         <label>Se encontro Tienda</label>
-        <locationX>1531</locationX>
-        <locationY>1403</locationY>
+        <locationX>1038</locationX>
+        <locationY>1295</locationY>
         <defaultConnector>
-            <targetReference>Obtener_Cliente_Notificaciones</targetReference>
+            <targetReference>Se_puede_enviar_notificacion</targetReference>
         </defaultConnector>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
@@ -1196,8 +1367,8 @@
     <decisions>
         <name>Se_encontro_un_Cliente</name>
         <label>Se encontro un Cliente ?</label>
-        <locationX>1234</locationX>
-        <locationY>1727</locationY>
+        <locationX>741</locationX>
+        <locationY>1655</locationY>
         <defaultConnector>
             <targetReference>Determinar_Tipo_de_Cliente</targetReference>
         </defaultConnector>
@@ -1213,9 +1384,41 @@
                 </rightValue>
             </conditions>
             <connector>
-                <targetReference>Actualizar_Cliente_del_Caso</targetReference>
+                <targetReference>Obtener_Contacto_Cliente_Empresa</targetReference>
             </connector>
             <label>Si se encontro</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Se_puede_enviar_notificacion</name>
+        <label>Se puede enviar notificacion?</label>
+        <locationX>1782</locationX>
+        <locationY>4835</locationY>
+        <defaultConnector>
+            <targetReference>Se_debe_enrutar_el_caso_por_habilidades</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>No</defaultConnectorLabel>
+        <rules>
+            <name>Si6</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.OwnerId</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.AccountId</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Obtener_Cliente_Notificaciones</targetReference>
+            </connector>
+            <label>Si</label>
         </rules>
     </decisions>
     <environments>Default</environments>
@@ -1223,6 +1426,11 @@
         <name>CO_EmailSubjectLine_SolicitudEvidencia</name>
         <dataType>String</dataType>
         <expression>&apos;Necesitamos que nos envies evidencias para resolver tu caso &apos; + {!$Record.CaseNumber}</expression>
+    </formulas>
+    <formulas>
+        <name>CO_EmailSubjectLine_WebToCase</name>
+        <dataType>String</dataType>
+        <expression>&apos;Hola &apos; + {!$Record.SOD_XS_PrimerNombreContacto__c} + &apos; hemos recibido tu caso #&apos; + {!$Record.CaseNumber}</expression>
     </formulas>
     <formulas>
         <name>DescripcionDelCaso</name>
@@ -1246,17 +1454,44 @@
         <expression>IF(ISBLANK({!$Record.SOD_XS_AuxNombreCompletoDelCliente__c}),{!$Record.SOD_XS_AuxNombresDelCliente__c} + &apos; &apos; +{!$Record.SOD_XS_AuxApellidosDelCliente__c},{!$Record.SOD_XS_AuxNombreCompletoDelCliente__c})</expression>
     </formulas>
     <formulas>
+        <name>ObtenerTipoDocumentoCliente</name>
+        <dataType>String</dataType>
+        <expression>IF(ISPICKVAL({!$Record.SOD_XS_AuxTipoDeDocumentoDelCliente__c}, &apos;CDE&apos;), &apos;Carnet de Extranjería&apos;, 
+IF(ISPICKVAL({!$Record.SOD_XS_AuxTipoDeDocumentoDelCliente__c}, &apos;CUR&apos;), &apos;Clave única de registro&apos;, 
+IF(ISPICKVAL({!$Record.SOD_XS_AuxTipoDeDocumentoDelCliente__c}, &apos;CEL&apos;), &apos;Credencial de elector&apos;, 
+IF(ISPICKVAL({!$Record.SOD_XS_AuxTipoDeDocumentoDelCliente__c}, &apos;DNI&apos;), &apos;DNI&apos;, 
+IF(ISPICKVAL({!$Record.SOD_XS_AuxTipoDeDocumentoDelCliente__c}, &apos;DIP&apos;), &apos;Documento identidad país de residencia&apos;, 
+IF(ISPICKVAL({!$Record.SOD_XS_AuxTipoDeDocumentoDelCliente__c}, &apos;PAS&apos;), &apos;Pasaporte&apos;, 
+IF(ISPICKVAL({!$Record.SOD_XS_AuxTipoDeDocumentoDelCliente__c}, &apos;RFC&apos;), &apos;RFC&apos;, 
+IF(ISPICKVAL({!$Record.SOD_XS_AuxTipoDeDocumentoDelCliente__c}, &apos;RUC&apos;), &apos;RUC&apos;, 
+IF(ISPICKVAL({!$Record.SOD_XS_AuxTipoDeDocumentoDelCliente__c}, &apos;RUT&apos;), &apos;RUT&apos;, 
+IF(ISPICKVAL({!$Record.SOD_XS_AuxTipoDeDocumentoDelCliente__c}, &apos;CDC&apos;), &apos;Cédula de Ciudadanía&apos;, 
+IF(ISPICKVAL({!$Record.SOD_XS_AuxTipoDeDocumentoDelCliente__c}, &apos;NIT&apos;), &apos;Número Identificación Tributaria&apos;, 
+IF(ISPICKVAL({!$Record.SOD_XS_AuxTipoDeDocumentoDelCliente__c}, &apos;TDI&apos;), &apos;Tarjeta de Identidad&apos;, 
+&apos;&apos;))))))))))))</expression>
+    </formulas>
+    <formulas>
         <name>PaisDelCaso</name>
         <dataType>String</dataType>
         <expression>IF(NOT(ISBLANK({!$Record.SOD_XS_PaisDeLaCuenta__c})),{!$Record.SOD_XS_PaisDeLaCuenta__c},(IF(NOT(ISBLANK({!$Record.SOD_XS_PaisdelCaso__c})),{!$Record.SOD_XS_PaisdelCaso__c},TEXT({!$Record.SOD_XS_AuxPaisDelCaso__c}))))</expression>
+    </formulas>
+    <formulas>
+        <name>Regresa_Email_Del_Destinatario</name>
+        <dataType>String</dataType>
+        <expression>IF({!Obtener_Cliente.RecordType.DeveloperName}==&apos;Business_Account&apos;,{!Obtener_Contacto.Email},{!Obtener_Cliente.PersonEmail})</expression>
+    </formulas>
+    <formulas>
+        <name>RegresaIdDelContacto</name>
+        <dataType>String</dataType>
+        <expression>IF({!Obtener_Cliente.RecordType.DeveloperName}==&apos;Business_Account&apos;,{!Obtener_Contacto_Cliente_Empresa.Id},{!Obtener_Cliente.PersonContact.Id})</expression>
     </formulas>
     <interviewLabel>SOD_XS_FlujoUnificadoCasos {!$Flow.CurrentDateTime}</interviewLabel>
     <label>SOD_XS_FlujoUnificadoCasos</label>
     <loops>
         <name>Iterar_Sobre_Tipificaciones_Especiales_0</name>
         <label>Iterar Sobre Tipificaciones Especiales</label>
-        <locationX>1234</locationX>
-        <locationY>2651</locationY>
+        <locationX>741</locationX>
+        <locationY>2807</locationY>
         <collectionReference>Obtener_Tipificaciones_Especiales_0</collectionReference>
         <iterationOrder>Asc</iterationOrder>
         <nextValueConnector>
@@ -1270,8 +1505,8 @@
     <loops>
         <name>Loop_Record_Types</name>
         <label>Loop Record Types</label>
-        <locationX>1674</locationX>
-        <locationY>2867</locationY>
+        <locationX>1181</locationX>
+        <locationY>3047</locationY>
         <collectionReference>Obtener_RecordTypes_del_Caso</collectionReference>
         <iterationOrder>Asc</iterationOrder>
         <nextValueConnector>
@@ -1285,8 +1520,8 @@
     <loops>
         <name>Recorrer_Tareas_Caso_Abierto</name>
         <label>Recorrer Tareas Caso Abierto</label>
-        <locationX>1544</locationX>
-        <locationY>6833</locationY>
+        <locationX>1386</locationX>
+        <locationY>8651</locationY>
         <collectionReference>Obtener_Tareas</collectionReference>
         <iterationOrder>Asc</iterationOrder>
         <nextValueConnector>
@@ -1299,8 +1534,8 @@
     <loops>
         <name>Recorrer_Tareas_Caso_Cerrado</name>
         <label>Recorrer Tareas Caso Cerrado</label>
-        <locationX>1896</locationX>
-        <locationY>6833</locationY>
+        <locationX>1738</locationX>
+        <locationY>8651</locationY>
         <collectionReference>Obtener_Tareas</collectionReference>
         <iterationOrder>Asc</iterationOrder>
         <nextValueConnector>
@@ -1332,10 +1567,10 @@
     <recordCreates>
         <name>Crear_Cliente_Empresa</name>
         <label>Crear Cliente Empresa</label>
-        <locationX>1300</locationX>
-        <locationY>2051</locationY>
+        <locationX>807</locationX>
+        <locationY>2015</locationY>
         <connector>
-            <targetReference>Obtener_Cliente_Recien_Creado_0</targetReference>
+            <targetReference>Crear_Contacto_Cliente_Empresa</targetReference>
         </connector>
         <inputAssignments>
             <field>CurrencyIsoCode</field>
@@ -1382,7 +1617,7 @@
         <inputAssignments>
             <field>SOD_XS_TipoDocumento__c</field>
             <value>
-                <elementReference>$Record.SOD_XS_AuxTipoDeDocumentoDelCliente__c</elementReference>
+                <elementReference>ObtenerTipoDocumentoCliente</elementReference>
             </value>
         </inputAssignments>
         <object>Account</object>
@@ -1391,8 +1626,8 @@
     <recordCreates>
         <name>Crear_Cliente_Persona</name>
         <label>Crear Cliente Persona</label>
-        <locationX>1564</locationX>
-        <locationY>2051</locationY>
+        <locationX>1071</locationX>
+        <locationY>2015</locationY>
         <connector>
             <targetReference>Obtener_Cliente_Recien_Creado</targetReference>
         </connector>
@@ -1447,17 +1682,58 @@
         <inputAssignments>
             <field>SOD_XS_TipoDocumento__c</field>
             <value>
-                <elementReference>$Record.SOD_XS_AuxTipoDeDocumentoDelCliente__c</elementReference>
+                <elementReference>ObtenerTipoDocumentoCliente</elementReference>
             </value>
         </inputAssignments>
         <object>Account</object>
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordCreates>
     <recordCreates>
+        <name>Crear_Contacto_Cliente_Empresa</name>
+        <label>Crear Contacto Cliente Empresa</label>
+        <locationX>807</locationX>
+        <locationY>2135</locationY>
+        <connector>
+            <targetReference>Obtener_Cliente_Recien_Creado_0</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>AccountId</field>
+            <value>
+                <elementReference>Crear_Cliente_Empresa</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Email</field>
+            <value>
+                <elementReference>$Record.SOD_XS_AuxEmailDelCliente__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>FirstName</field>
+            <value>
+                <elementReference>$Record.SOD_XS_AuxNombresDelCliente__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>LastName</field>
+            <value>
+                <elementReference>$Record.SOD_XS_AuxApellidosDelCliente__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>MobilePhone</field>
+            <value>
+                <elementReference>$Record.SOD_XS_AuxTelefonoDelCliente__c</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Contact</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordCreates>
+    <recordCreates>
         <name>Crear_Email_Message</name>
         <label>Crear Email Message</label>
-        <locationX>1489</locationX>
-        <locationY>5333</locationY>
+        <locationX>50</locationX>
+        <locationY>6275</locationY>
         <connector>
             <targetReference>Solicitar_Evidencia</targetReference>
         </connector>
@@ -1519,74 +1795,88 @@
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordCreates>
     <recordCreates>
-        <name>Crear_Recontacto</name>
-        <label>Crear Recontacto</label>
-        <locationX>50</locationX>
-        <locationY>1295</locationY>
+        <name>Crear_Email_Message_2</name>
+        <label>Crear Email Message 2</label>
+        <locationX>1018</locationX>
+        <locationY>5915</locationY>
         <connector>
-            <targetReference>Eliminar_Registro_desencadenador</targetReference>
+            <targetReference>Notificar_Creacion_Caso_Web_To_Case</targetReference>
         </connector>
         <inputAssignments>
-            <field>CurrencyIsoCode</field>
+            <field>EmailTemplateId</field>
             <value>
-                <elementReference>DivisaDelCaso</elementReference>
+                <elementReference>Obtener_Template_2.Id</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
-            <field>RecordTypeId</field>
+            <field>FromAddress</field>
             <value>
-                <elementReference>Obtener_RecordTypeId_Reincidencia_Recontacto.Id</elementReference>
+                <stringValue>noreplysac@homecenter.co</stringValue>
             </value>
         </inputAssignments>
         <inputAssignments>
-            <field>SOD_XS_CanalDeOrigen__c</field>
+            <field>FromName</field>
             <value>
-                <stringValue>Web</stringValue>
+                <elementReference>$Record.Owner:User.Name</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
-            <field>SOD_XS_Caso__c</field>
+            <field>ParentId</field>
             <value>
-                <elementReference>Obtener_Casos_Abiertos.Id</elementReference>
+                <elementReference>$Record.Id</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
-            <field>SOD_XS_Comentario__c</field>
+            <field>RelatedToId</field>
             <value>
-                <elementReference>$Record.Description</elementReference>
+                <elementReference>$Record.Id</elementReference>
             </value>
         </inputAssignments>
-        <object>SOD_XS_ReContacto__c</object>
+        <inputAssignments>
+            <field>SOD_XS_EmailTemplateName__c</field>
+            <value>
+                <elementReference>Obtener_Template_2.Name</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Subject</field>
+            <value>
+                <elementReference>CO_EmailSubjectLine_WebToCase</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>TextBody</field>
+            <value>
+                <elementReference>CO_EmailBodyPlainText_WebToCase</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>ToAddress</field>
+            <value>
+                <elementReference>Regresa_Email_Del_Destinatario</elementReference>
+            </value>
+        </inputAssignments>
+        <object>EmailMessage</object>
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordCreates>
     <recordDeletes>
-        <name>Eliminar_Registro_desencadenador</name>
-        <label>Eliminar Registro desencadenador</label>
-        <locationX>50</locationX>
-        <locationY>1403</locationY>
-        <connector>
-            <targetReference>Obtener_Cliente_Notificaciones</targetReference>
-        </connector>
-        <inputReference>$Record</inputReference>
-    </recordDeletes>
-    <recordDeletes>
         <name>Eliminar_Registro_desencadenador_0</name>
         <label>Eliminar Registro desencadenador</label>
-        <locationX>2004</locationX>
-        <locationY>863</locationY>
+        <locationX>1511</locationX>
+        <locationY>935</locationY>
         <connector>
-            <targetReference>Obtener_Cliente_Notificaciones</targetReference>
+            <targetReference>Se_puede_enviar_notificacion</targetReference>
         </connector>
         <inputReference>$Record</inputReference>
     </recordDeletes>
     <recordLookups>
         <name>Case_Owner_Queue</name>
         <label>Case Owner Queue</label>
-        <locationX>1654</locationX>
-        <locationY>5909</locationY>
+        <locationX>1551</locationX>
+        <locationY>7403</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
-            <targetReference>CO_Determinar_que_Skills_se_Aplican</targetReference>
+            <targetReference>Determinar_Pais1</targetReference>
         </connector>
         <filterLogic>and</filterLogic>
         <filters>
@@ -1603,8 +1893,8 @@
     <recordLookups>
         <name>Obtener_Bussiness_Account_RT</name>
         <label>Obtener Bussiness Account RT</label>
-        <locationX>1300</locationX>
-        <locationY>1943</locationY>
+        <locationX>807</locationX>
+        <locationY>1895</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Crear_Cliente_Empresa</targetReference>
@@ -1629,96 +1919,10 @@
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
     <recordLookups>
-        <name>Obtener_Casos_Abiertos</name>
-        <label>Obtener Casos Abiertos</label>
-        <locationX>790</locationX>
-        <locationY>971</locationY>
-        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
-        <connector>
-            <targetReference>Existe_mismo_Caso_abierto</targetReference>
-        </connector>
-        <filterLogic>and</filterLogic>
-        <filters>
-            <field>Origin</field>
-            <operator>EqualTo</operator>
-            <value>
-                <stringValue>Web-to-Case</stringValue>
-            </value>
-        </filters>
-        <filters>
-            <field>SOD_XS_AuxPaisDelCaso__c</field>
-            <operator>EqualTo</operator>
-            <value>
-                <elementReference>$Record.SOD_XS_AuxPaisDelCaso__c</elementReference>
-            </value>
-        </filters>
-        <filters>
-            <field>SOD_XS_AuxMotivoDelCaso__c</field>
-            <operator>EqualTo</operator>
-            <value>
-                <elementReference>$Record.SOD_XS_AuxMotivoDelCaso__c</elementReference>
-            </value>
-        </filters>
-        <filters>
-            <field>SOD_XS_AuxNumeroDeDocumentoDelCliente__c</field>
-            <operator>EqualTo</operator>
-            <value>
-                <elementReference>$Record.SOD_XS_AuxNumeroDeDocumentoDelCliente__c</elementReference>
-            </value>
-        </filters>
-        <filters>
-            <field>SOD_XS_AuxTipoDeDocumentoDelCliente__c</field>
-            <operator>EqualTo</operator>
-            <value>
-                <elementReference>$Record.SOD_XS_AuxTipoDeDocumentoDelCliente__c</elementReference>
-            </value>
-        </filters>
-        <filters>
-            <field>SOD_XS_AuxCodigoDelProductoAfectado__c</field>
-            <operator>EqualTo</operator>
-            <value>
-                <elementReference>$Record.SOD_XS_AuxCodigoDelProductoAfectado__c</elementReference>
-            </value>
-        </filters>
-        <filters>
-            <field>SOD_XS_AuxOrdenDeCompra__c</field>
-            <operator>EqualTo</operator>
-            <value>
-                <elementReference>$Record.SOD_XS_AuxOrdenDeCompra__c</elementReference>
-            </value>
-        </filters>
-        <filters>
-            <field>Status</field>
-            <operator>NotEqualTo</operator>
-            <value>
-                <stringValue>Closed</stringValue>
-            </value>
-        </filters>
-        <filters>
-            <field>Id</field>
-            <operator>NotEqualTo</operator>
-            <value>
-                <elementReference>$Record.Id</elementReference>
-            </value>
-        </filters>
-        <filters>
-            <field>IsDeleted</field>
-            <operator>EqualTo</operator>
-            <value>
-                <booleanValue>false</booleanValue>
-            </value>
-        </filters>
-        <getFirstRecordOnly>true</getFirstRecordOnly>
-        <object>Case</object>
-        <sortField>CreatedDate</sortField>
-        <sortOrder>Desc</sortOrder>
-        <storeOutputAutomatically>true</storeOutputAutomatically>
-    </recordLookups>
-    <recordLookups>
         <name>Obtener_Cliente</name>
         <label>Obtener Cliente</label>
-        <locationX>1234</locationX>
-        <locationY>1619</locationY>
+        <locationX>741</locationX>
+        <locationY>1535</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Se_encontro_un_Cliente</targetReference>
@@ -1728,7 +1932,7 @@
             <field>SOD_XS_TipoDocumento__c</field>
             <operator>EqualTo</operator>
             <value>
-                <elementReference>$Record.SOD_XS_AuxTipoDeDocumentoDelCliente__c</elementReference>
+                <elementReference>ObtenerTipoDocumentoCliente</elementReference>
             </value>
         </filters>
         <filters>
@@ -1752,11 +1956,11 @@
     <recordLookups>
         <name>Obtener_Cliente_Notificaciones</name>
         <label>Obtener Cliente</label>
-        <locationX>2182</locationX>
-        <locationY>4577</locationY>
+        <locationX>1579</locationX>
+        <locationY>4955</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
-            <targetReference>Determinar_Pais</targetReference>
+            <targetReference>Obtener_Contacto</targetReference>
         </connector>
         <filterLogic>and</filterLogic>
         <filters>
@@ -1773,8 +1977,8 @@
     <recordLookups>
         <name>Obtener_Cliente_Recien_Creado</name>
         <label>Obtener Cliente Recien Creado</label>
-        <locationX>1564</locationX>
-        <locationY>2159</locationY>
+        <locationX>1071</locationX>
+        <locationY>2135</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Actualizar_Cliente_del_Caso_0</targetReference>
@@ -1794,8 +1998,8 @@
     <recordLookups>
         <name>Obtener_Cliente_Recien_Creado_0</name>
         <label>Obtener Cliente Recien Creado</label>
-        <locationX>1300</locationX>
-        <locationY>2159</locationY>
+        <locationX>807</locationX>
+        <locationY>2255</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Actualizar_Cliente_del_Caso_0_0</targetReference>
@@ -1813,10 +2017,52 @@
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
     <recordLookups>
+        <name>Obtener_Contacto</name>
+        <label>Obtener Contacto</label>
+        <locationX>1579</locationX>
+        <locationY>5075</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Cliente_Tiene_Email</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>AccountId</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>Obtener_Cliente.Id</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Contact</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>Obtener_Contacto_Cliente_Empresa</name>
+        <label>Obtener Contacto Cliente Empresa</label>
+        <locationX>543</locationX>
+        <locationY>1775</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Actualizar_Cliente_del_Caso</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>AccountId</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>Obtener_Cliente.Id</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Contact</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
         <name>Obtener_Email_Mesage</name>
         <label>Obtener Email Mesage</label>
-        <locationX>1775</locationX>
-        <locationY>5009</locationY>
+        <locationX>182</locationX>
+        <locationY>6035</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Email_Message_Se_Puede_Enviar</targetReference>
@@ -1841,10 +2087,38 @@
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
     <recordLookups>
+        <name>Obtener_Email_Mesage_2</name>
+        <label>Obtener Email Mesage 2</label>
+        <locationX>1150</locationX>
+        <locationY>5675</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Email_Message_Se_Puede_Enviar2</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>ParentId</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>EmailTemplateId</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>Obtener_Template_2.Id</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>EmailMessage</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
         <name>Obtener_Feature_Toggle_Web_to_Case_Colombia</name>
         <label>Obtener Feature Toggle Web-to-Case Colombia</label>
-        <locationX>1397</locationX>
-        <locationY>647</locationY>
+        <locationX>1275</locationX>
+        <locationY>695</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Esta_activo</targetReference>
@@ -1871,8 +2145,8 @@
     <recordLookups>
         <name>Obtener_Pais</name>
         <label>Obtener Pais</label>
-        <locationX>1531</locationX>
-        <locationY>1187</locationY>
+        <locationX>1038</locationX>
+        <locationY>1055</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Obtener_Tienda</targetReference>
@@ -1892,8 +2166,8 @@
     <recordLookups>
         <name>Obtener_Person_Account_RT</name>
         <label>Obtener Person Account RT</label>
-        <locationX>1564</locationX>
-        <locationY>1943</locationY>
+        <locationX>1071</locationX>
+        <locationY>1895</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Crear_Cliente_Persona</targetReference>
@@ -1918,38 +2192,10 @@
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
     <recordLookups>
-        <name>Obtener_RecordTypeId_Reincidencia_Recontacto</name>
-        <label>Obtener RecordTypeId Reincidencia Recontacto</label>
-        <locationX>50</locationX>
-        <locationY>1187</locationY>
-        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
-        <connector>
-            <targetReference>Crear_Recontacto</targetReference>
-        </connector>
-        <filterLogic>and</filterLogic>
-        <filters>
-            <field>Name</field>
-            <operator>EqualTo</operator>
-            <value>
-                <stringValue>Reincidencia</stringValue>
-            </value>
-        </filters>
-        <filters>
-            <field>SobjectType</field>
-            <operator>EqualTo</operator>
-            <value>
-                <stringValue>SOD_XS_ReContacto__c</stringValue>
-            </value>
-        </filters>
-        <getFirstRecordOnly>true</getFirstRecordOnly>
-        <object>RecordType</object>
-        <storeOutputAutomatically>true</storeOutputAutomatically>
-    </recordLookups>
-    <recordLookups>
         <name>Obtener_RecordTypes_del_Caso</name>
         <label>Obtener RecordTypes del Caso</label>
-        <locationX>1234</locationX>
-        <locationY>2543</locationY>
+        <locationX>741</locationX>
+        <locationY>2687</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Iterar_Sobre_Tipificaciones_Especiales_0</targetReference>
@@ -1969,8 +2215,8 @@
     <recordLookups>
         <name>Obtener_Tareas</name>
         <label>Obtener Tareas</label>
-        <locationX>1720</locationX>
-        <locationY>6617</locationY>
+        <locationX>1562</locationX>
+        <locationY>8411</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Caso_Abierto</targetReference>
@@ -1990,8 +2236,8 @@
     <recordLookups>
         <name>Obtener_Template</name>
         <label>Obtener Template</label>
-        <locationX>1775</locationX>
-        <locationY>4901</locationY>
+        <locationX>182</locationX>
+        <locationY>5915</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Obtener_Email_Mesage</targetReference>
@@ -2009,10 +2255,31 @@
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
     <recordLookups>
+        <name>Obtener_Template_2</name>
+        <label>Obtener Template 2</label>
+        <locationX>1150</locationX>
+        <locationY>5555</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Obtener_Email_Mesage_2</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Name</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>SODIMAC - CO Web To Case</stringValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>EmailTemplate</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
         <name>Obtener_Tienda</name>
         <label>Obtener Tienda</label>
-        <locationX>1531</locationX>
-        <locationY>1295</locationY>
+        <locationX>1038</locationX>
+        <locationY>1175</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Se_encontro_Tienda</targetReference>
@@ -2032,11 +2299,11 @@
     <recordLookups>
         <name>Obtener_Tipificaciones_Especiales_0</name>
         <label>Obtener Tipificaciones Especiales</label>
-        <locationX>790</locationX>
-        <locationY>863</locationY>
+        <locationX>1038</locationX>
+        <locationY>935</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
-            <targetReference>Obtener_Casos_Abiertos</targetReference>
+            <targetReference>Obtener_Pais</targetReference>
         </connector>
         <filterLogic>or</filterLogic>
         <filters>
@@ -2060,8 +2327,8 @@
     <recordUpdates>
         <name>Actualizar_Cliente_del_Caso</name>
         <label>Actualizar Cliente del Caso</label>
-        <locationX>1036</locationX>
-        <locationY>1835</locationY>
+        <locationX>543</locationX>
+        <locationY>1895</locationY>
         <connector>
             <targetReference>Obtener_RecordTypes_del_Caso</targetReference>
         </connector>
@@ -2074,7 +2341,7 @@
         <inputAssignments>
             <field>ContactId</field>
             <value>
-                <elementReference>Obtener_Cliente.PersonContact.Id</elementReference>
+                <elementReference>RegresaIdDelContacto</elementReference>
             </value>
         </inputAssignments>
         <inputReference>$Record</inputReference>
@@ -2082,8 +2349,8 @@
     <recordUpdates>
         <name>Actualizar_Cliente_del_Caso_0</name>
         <label>Actualizar Cliente del Caso</label>
-        <locationX>1564</locationX>
-        <locationY>2267</locationY>
+        <locationX>1071</locationX>
+        <locationY>2255</locationY>
         <connector>
             <targetReference>Obtener_RecordTypes_del_Caso</targetReference>
         </connector>
@@ -2104,8 +2371,8 @@
     <recordUpdates>
         <name>Actualizar_Cliente_del_Caso_0_0</name>
         <label>Actualizar Cliente del Caso</label>
-        <locationX>1300</locationX>
-        <locationY>2267</locationY>
+        <locationX>807</locationX>
+        <locationY>2375</locationY>
         <connector>
             <targetReference>Obtener_RecordTypes_del_Caso</targetReference>
         </connector>
@@ -2115,13 +2382,19 @@
                 <elementReference>Obtener_Cliente_Recien_Creado_0.Id</elementReference>
             </value>
         </inputAssignments>
+        <inputAssignments>
+            <field>ContactId</field>
+            <value>
+                <elementReference>Crear_Contacto_Cliente_Empresa</elementReference>
+            </value>
+        </inputAssignments>
         <inputReference>$Record</inputReference>
     </recordUpdates>
     <recordUpdates>
         <name>Actualizar_Divisa_Aux_Nombre_Completo</name>
         <label>Actualizar Divisa &amp; Aux Nombre Completo</label>
-        <locationX>1762</locationX>
-        <locationY>3299</locationY>
+        <locationX>1269</locationX>
+        <locationY>3527</locationY>
         <connector>
             <targetReference>Invocar_Activar_Reglas_de_Asignacion_del_Caso_0</targetReference>
         </connector>
@@ -2148,8 +2421,8 @@
     <recordUpdates>
         <name>Actualizar_RecordType_del_Caso</name>
         <label>Actualizar RecordType del Caso</label>
-        <locationX>1762</locationX>
-        <locationY>3083</locationY>
+        <locationX>1269</locationX>
+        <locationY>3287</locationY>
         <connector>
             <targetReference>Actualizar_Tipificacion_del_Caso</targetReference>
         </connector>
@@ -2164,22 +2437,22 @@
     <recordUpdates>
         <name>Actualizar_Tareas</name>
         <label>Actualizar Tareas</label>
-        <locationX>1544</locationX>
-        <locationY>7241</locationY>
+        <locationX>1386</locationX>
+        <locationY>9107</locationY>
         <inputReference>TareasParaActualizar</inputReference>
     </recordUpdates>
     <recordUpdates>
         <name>Actualizar_Tareas1</name>
         <label>Actualizar Tareas</label>
-        <locationX>1896</locationX>
-        <locationY>7241</locationY>
+        <locationX>1738</locationX>
+        <locationY>9107</locationY>
         <inputReference>TareasParaActualizar</inputReference>
     </recordUpdates>
     <recordUpdates>
         <name>Actualizar_Tienda_Que_Vende_Del_Caso</name>
         <label>Actualizar Tienda Que Vende Del Caso</label>
-        <locationX>1234</locationX>
-        <locationY>1511</locationY>
+        <locationX>741</locationX>
+        <locationY>1415</locationY>
         <connector>
             <targetReference>Obtener_Cliente</targetReference>
         </connector>
@@ -2200,8 +2473,8 @@
     <recordUpdates>
         <name>Actualizar_Tipificacion_del_Caso</name>
         <label>Actualizar Tipificacion del Caso</label>
-        <locationX>1762</locationX>
-        <locationY>3191</locationY>
+        <locationX>1269</locationX>
+        <locationY>3407</locationY>
         <connector>
             <targetReference>Actualizar_Divisa_Aux_Nombre_Completo</targetReference>
         </connector>
@@ -2238,7 +2511,7 @@
         <inputReference>$Record</inputReference>
     </recordUpdates>
     <start>
-        <locationX>858</locationX>
+        <locationX>544</locationX>
         <locationY>0</locationY>
         <connector>
             <targetReference>Flujos_desactivados</targetReference>
@@ -2252,6 +2525,11 @@
         <name>CO_EmailBodyPlainText_SolicitudEvidencia</name>
         <isViewedAsPlainText>false</isViewedAsPlainText>
         <text>&lt;p&gt;Hola {!$Record.Account.FirstName} {!$Record.Account.LastName},&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Para nosotros es muy importante dar solución a tu requerimiento No {!$Record.CaseNumber}, relacionado con el producto que recibiste con novedad (dañado, piezas/producto incompleto, errado, no funciona, problemas de calidad entre otros), para avanzar en tu solicitud es indispensable que envíes en las siguientes 24 horas al correo {!$Record.Owner:User.Email} las fotos de: producto y empaque donde se identifique la novedad que mencionas, y de todas las etiquetas de las cajas, si se trata de piezas faltantes: foto del manual especificando cuáles son. Así mismo, requerimos que nos confirmes los datos de contacto del comprador:&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Nombre y número de documento del comprador:&lt;/p&gt;&lt;p&gt;Dirección donde se encuentra el producto:&lt;/p&gt;&lt;p&gt;Número de celular:&lt;/p&gt;&lt;p&gt;Fecha de entrega del Producto:&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Posterior al envío de las fotografías, el asesor de Experiencia de Clientes se contactará contigo para buscar la mejor alternativa.&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Cordialmente&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Experiencia de Clientes Homecenter&lt;/p&gt;</text>
+    </textTemplates>
+    <textTemplates>
+        <name>CO_EmailBodyPlainText_WebToCase</name>
+        <isViewedAsPlainText>false</isViewedAsPlainText>
+        <text>&lt;p&gt;Hemos recibido tu requerimiento, el cual ha sido registrado con el número {!$Record.CaseNumber}.&amp;nbsp;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;De ser necesario uno de nuestros asesores estará en contacto contigo, con el fin de ampliar la información y buscar la mejor alternativa de solución para ti.&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Cordialmente&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Experiencia de Clientes Homecenter&lt;/p&gt;</text>
     </textTemplates>
     <triggerOrder>1</triggerOrder>
     <variables>
