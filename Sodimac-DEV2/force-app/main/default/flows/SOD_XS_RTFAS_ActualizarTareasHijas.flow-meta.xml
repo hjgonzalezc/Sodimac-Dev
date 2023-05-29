@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>50.0</apiVersion>
+    <assignments>
+        <description>Almacena las Tareas modificadas en colección para ser actualizadas</description>
+        <name>AgregarALaColeccion</name>
+        <label>Agregar a La Colección</label>
+        <locationX>352</locationX>
+        <locationY>935</locationY>
+        <assignmentItems>
+            <assignToReference>TareasParaActualizar</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>RecorrerTareasCasoAbierto</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>RecorrerTareasCasoAbierto</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>Almacena las Tareas modificadas en colección para ser actualizadas</description>
+        <name>AgregarALaColeccion1</name>
+        <label>Agregar a La Colección</label>
+        <locationX>704</locationX>
+        <locationY>935</locationY>
+        <assignmentItems>
+            <assignToReference>TareasParaActualizar</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>RecorrerTareasCasoCerrado</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>RecorrerTareasCasoCerrado</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>Asigna Tarea al mismo usuario/cola propietaria del Caso</description>
+        <name>AsignaPropietario_0</name>
+        <label>Asigna Propietario</label>
+        <locationX>352</locationX>
+        <locationY>815</locationY>
+        <assignmentItems>
+            <assignToReference>RecorrerTareasCasoAbierto.SOD_XS_PropietarioDelCaso__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.OwnerId</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>AgregarALaColeccion</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>se almacena el campo isClosed del Caso padre en las Tareas hijas (en SOD_XS_CasoCerrado)</description>
+        <name>Asignar_Caso_Cerrado_0</name>
+        <label>Asignar Caso Cerrado</label>
+        <locationX>704</locationX>
+        <locationY>815</locationY>
+        <assignmentItems>
+            <assignToReference>RecorrerTareasCasoCerrado.SOD_XS_CasoCerrado__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.IsClosed</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>AgregarALaColeccion1</targetReference>
+        </connector>
+    </assignments>
+    <decisions>
+        <description>Chequea si está activo el Bypass de Flows</description>
+        <name>Flujos_Desactivados</name>
+        <label>Flujos Desactivados?</label>
+        <locationX>176</locationX>
+        <locationY>335</locationY>
+        <defaultConnector>
+            <targetReference>ObtenerTareas</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>No</defaultConnectorLabel>
+        <rules>
+            <name>Si</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Setup.SOD_XS_Bypass__c.SOD_XS_DesactivarFlows__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <label>Sí</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>SOD_XS_CasoAbierto</name>
+        <label>Caso Abierto</label>
+        <locationX>440</locationX>
+        <locationY>575</locationY>
+        <defaultConnector>
+            <targetReference>RecorrerTareasCasoCerrado</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Resultado predeterminado</defaultConnectorLabel>
+        <rules>
+            <name>CasoAbierto</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Status</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>Closed</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>RecorrerTareasCasoAbierto</targetReference>
+            </connector>
+            <label>Caso Abierto</label>
+        </rules>
+    </decisions>
+    <description>Flujo Record Triggered Flow After Save: Actualizar Tareas Hijas
+Utilizado para actualizar las tareas con el propietario del caso y el estado del caso cuando esta cerrado.</description>
+    <environments>Default</environments>
+    <interviewLabel>SOD_XS_RRAS_ActualizarTareasHijas {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>SOD_XS_RTFAS_ActualizarTareasHijas</label>
+    <loops>
+        <description>Itera sobre las Tareas encontradas del Caso Padre</description>
+        <name>RecorrerTareasCasoAbierto</name>
+        <label>Recorrer Tareas Caso Abierto</label>
+        <locationX>264</locationX>
+        <locationY>695</locationY>
+        <collectionReference>ObtenerTareas</collectionReference>
+        <iterationOrder>Asc</iterationOrder>
+        <nextValueConnector>
+            <targetReference>AsignaPropietario_0</targetReference>
+        </nextValueConnector>
+        <noMoreValuesConnector>
+            <targetReference>ActualizarTareas_0</targetReference>
+        </noMoreValuesConnector>
+    </loops>
+    <loops>
+        <description>Itera sobre las Tareas encontradas del Caso Padre</description>
+        <name>RecorrerTareasCasoCerrado</name>
+        <label>Recorrer Tareas Caso Cerrado</label>
+        <locationX>616</locationX>
+        <locationY>695</locationY>
+        <collectionReference>ObtenerTareas</collectionReference>
+        <iterationOrder>Asc</iterationOrder>
+        <nextValueConnector>
+            <targetReference>Asignar_Caso_Cerrado_0</targetReference>
+        </nextValueConnector>
+        <noMoreValuesConnector>
+            <targetReference>ActualizarTareas_0_0</targetReference>
+        </noMoreValuesConnector>
+    </loops>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <description>Obtiene todas las tareas del Caso Padre que gatilló este Flujo</description>
+        <name>ObtenerTareas</name>
+        <label>Obtener Tareas</label>
+        <locationX>440</locationX>
+        <locationY>455</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>SOD_XS_CasoAbierto</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>WhatId</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>false</getFirstRecordOnly>
+        <object>Task</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordUpdates>
+        <description>actualiza las tareas con los campos modificados en el loop</description>
+        <name>ActualizarTareas_0</name>
+        <label>Actualizar Tareas</label>
+        <locationX>264</locationX>
+        <locationY>1151</locationY>
+        <inputReference>TareasParaActualizar</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <description>actualiza las tareas con los campos modificados en el loop</description>
+        <name>ActualizarTareas_0_0</name>
+        <label>Actualizar Tareas</label>
+        <locationX>616</locationX>
+        <locationY>1151</locationY>
+        <inputReference>TareasParaActualizar</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Flujos_Desactivados</targetReference>
+        </connector>
+        <filterLogic>or</filterLogic>
+        <filters>
+            <field>OwnerId</field>
+            <operator>IsChanged</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </filters>
+        <filters>
+            <field>IsClosed</field>
+            <operator>IsChanged</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </filters>
+        <object>Case</object>
+        <recordTriggerType>Update</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+    <triggerOrder>3</triggerOrder>
+    <variables>
+        <description>Colección de Tareas para ser actualizadas</description>
+        <name>TareasParaActualizar</name>
+        <dataType>SObject</dataType>
+        <isCollection>true</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+        <objectType>Task</objectType>
+    </variables>
+</Flow>
