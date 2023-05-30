@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <alerts>
+        <fullName>CierreTareaCaso</fullName>
+        <description>Cierre Tarea Caso</description>
+        <protected>false</protected>
+        <recipients>
+            <type>creator</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/Notificacioncierretareacaso</template>
+    </alerts>
+    <alerts>
+        <fullName>NotifacionPropietarioTareaSLAAsignacion</fullName>
+        <description>Notificación Propietario Tarea - SLA Asignación</description>
+        <protected>false</protected>
+        <recipients>
+            <type>creator</type>
+        </recipients>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderAddress>servicioalclienteperu@sodimac.com.pe</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>unfiled$public/Incumplimiento_SLA_Asignacion</template>
+    </alerts>
+    <alerts>
+        <fullName>NotificacionPropietarioTareaSLACierre</fullName>
+        <description>Notificación Propietario Tarea - SLA Cierre</description>
+        <protected>false</protected>
+        <recipients>
+            <type>creator</type>
+        </recipients>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderAddress>servicioalclienteperu@sodimac.com.pe</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>unfiled$public/Incumplimiento_SLA_Cierre</template>
+    </alerts>
+    <alerts>
+        <fullName>SOD_XS_Tarea_AlertaTipoAdministrativa</fullName>
+        <description>SOD_XS_Tarea_AlertaTipoAdministrativa</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/SOD_XS_Caso_ET_AlertaTareaAdministrativa</template>
+    </alerts>
+</Workflow>

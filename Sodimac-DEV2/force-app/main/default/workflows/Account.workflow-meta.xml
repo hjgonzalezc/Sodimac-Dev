@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fieldUpdates>
+        <fullName>SOD_XS_ActualizacionIntegracion</fullName>
+        <description>Se actualiza el valor del campo SOD_XS_ActualizacionPorIntegracion__c a FALSE. De esta manera, se indica que el proceso de actualización desde la BUC para el registro de Account ha finalizado.</description>
+        <field>SOD_XS_ActualizacionPorIntegracion__c</field>
+        <literalValue>0</literalValue>
+        <name>SOD XS Actualización por integración</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <rules>
+        <fullName>SOD_XS_Account_WF_DeshabilitaciónReglas</fullName>
+        <actions>
+            <name>SOD_XS_ActualizacionIntegracion</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>Deshabilitación de reglas de validación en el objeto cuentas, para actualizaciones de integración desde BFF/BUC</description>
+        <formula>AND( 	NOT($Setup.SOD_XS_Bypass__c.SOD_XS_DesactivarWorkflowRules__c), 	SOD_XS_ActualizacionPorIntegracion__c  )</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+</Workflow>
